@@ -1,4 +1,4 @@
-import discord
+
 import os
 import requests
 import json
@@ -8,11 +8,6 @@ from keep_alive import keep_alive
 
 client = discord.Client()
 
-#this part is fixed now it shows an epic status i guess?
-@client.event
-async def on_ready():
-  print('We have logged in as {0.user}'.format(client))
-  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you"))
 #failed attempt at command
 @client.event
 async def on_message(message):
@@ -23,6 +18,14 @@ async def on_message(message):
 
   if msg.startswith("hlgaming"):
     await message.channel.send("gaming")
+
+#this part is fixed now it shows an epic status i guess?
+@client.event
+async def on_ready():
+  print('We have logged in as {0.user}'.format(client))
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you"))
+
+
 #triggers
 @client.event
 async def on_message(msg):
