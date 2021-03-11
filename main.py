@@ -1,37 +1,35 @@
 import discord
 import os
+import requests
+import json
+import random
 from replit import db
 from keep_alive import keep_alive
 
 client = discord.Client()
 
+#this part is fixed now it shows an epic status i guess?
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-
+  print('We have logged in as {0.user}'.format(client))
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you"))
+#failed attempt at command
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
+  if message.author == client.user:
+    return
 
-    if message.content.startswith('d-old_e'):
-        await message.channel.send('Ah, you always like to press E huh? Well I am not healing you anymore Scout.')
+  msg = message.content
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('d-help'):
-        await message.channel.send('This is a prototype bot for Solly, Not all commands are featured, when I have more time, more commands will be added. All commands:`old_e`')
-
+  if msg.startswith("hlgaming"):
+    await message.channel.send("gaming")
+#triggers
 @client.event
 async def on_message(msg):
 	if("sex" in " "+msg.content.lower()+" "):
 		await msg.add_reaction("<:sex:803720888175820891>")
 	if("sus" in " "+msg.content.lower()+" "):
 		await msg.add_reaction("<:sus:803587570260770887>")
-	await bot.process_commands(msg)        
-      
+
 keep_alive()
-client.run(os.getenv('sex'))
+client.run(os.getenv('TOKEN'))
