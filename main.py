@@ -1,38 +1,27 @@
 import discord
 import os
-import requests
-import json
-import random
-from replit import db
 from keep_alive import keep_alive
+from discord.ext import commands
 
-client = discord.Client()
+#i fixed it
 
-#failed attempt at command
-@client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
+client = commands.Bot(command_prefix = 'hl-')
 
-  msg = message.content
-
-  if msg.startswith("hlgaming"):
-    await message.channel.send("gaming")
+#this is a latency command?
+@client.command()
+async def ping(ctx):
+  await ctx.send(f'latency gaming {round(client.latency * 1000)}ms')
 
 #this part is fixed now it shows an epic status i guess?
+#but yeah, this will crash the bot later for some fucking reason,
+
 @client.event
 async def on_ready():
-  print('We have logged in as {0.user}'.format(client))
-  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you"))
-
+  print ('My body is ready')
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="at Game and Watch"))
 
 #triggers
-@client.event
-async def on_message(msg):
-	if("sex" in " "+msg.content.lower()+" "):
-		await msg.add_reaction("<:sex:803720888175820891>")
-	if("sus" in " "+msg.content.lower()+" "):
-		await msg.add_reaction("<:sus:803587570260770887>")
+#i have removed the triggers because, there is a conflict, i will fix it later
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
