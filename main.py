@@ -127,7 +127,7 @@ async def hldm(ctx):
                  "Butterfly Knife",
                  "Butterfly Knife (backstab"]
   await ctx.send((random.choice(plr), random.choice(die), random.choice(deathreason)))
-
+#troll
 @client.command(pass_context=True)
 async def yomama(ctx):
   yomjoke = ["Yer mum is so Bri'ish, she went to hell",
