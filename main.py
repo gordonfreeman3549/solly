@@ -57,7 +57,7 @@ async def test(ctx):
 	em.add_field(name="yourmom", value="test command 3")
 	em.add_field(name="everyone", value="test command 4")
 	em.add_field(name="r34", value="test command 5")
-	em.add_field(name="funny", value="test command 6")
+	em.add_field(name="sexed", value="video test")
 	em.add_field(name="amongus", value="shows among us")
 
 	await ctx.send(embed=em)
@@ -285,7 +285,21 @@ async def source(ctx):
 
 @client.command()
 async def update(ctx):
-  await ctx.send("+ Added VOX commands\n+ Added the following commands: source, update, about")
+  await ctx.send("~ Changed the `amogus` command to `sexed`.\n~ Changed how `sexed` functions.")
+
+@client.command()
+async def about(ctx):
+  await ctx.send("Bot made by Rosa(Headcrab#5562)")
+
+@client.command()
+async def sexed(ctx):
+  ed = ["https://cdn.discordapp.com/attachments/850565037072056323/853710195988889600/Hangout_Fortress_member_gets_a_lesson_in_meme_culture.mp4", 
+         "https://cdn.discordapp.com/attachments/850565037072056323/854320619331518474/We_will_be_talking_about_the_penis_and_vagina..mp4", 
+         "https://cdn.discordapp.com/attachments/850565037072056323/851670371581034536/video0.mp4",
+         "https://cdn.discordapp.com/attachments/830849943379902505/854326068164689930/video0.mp4",
+         "https://cdn.discordapp.com/attachments/830849943379902505/854326168521146368/talkaboutthe.mp4"]
+  await ctx.send("Ping Headcrab if you have a `We will talking about` meme."+random.choice(ed))
+
 
 #this part is fixed now it shows an epic status i guess?
 #but yeah, this will crash the bot later for some fucking reason,
